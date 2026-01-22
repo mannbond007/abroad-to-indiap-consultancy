@@ -1,37 +1,16 @@
-# Client – Frontend Application
+# React + Vite
 
-This folder contains the frontend of the Admission Consultancy Website.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## 🚀 Tech Stack
-- React (Vite)
-- Tailwind CSS
-- React Router DOM
-- SEO-friendly static pages
+Currently, two official plugins are available:
 
-## 🎯 Purpose
-- Display information about studying in India
-- Target international students (Nepal, Bangladesh, UAE, Qatar, Oman, South Africa, Afghanistan)
-- Generate counselling leads
-- Build trust through clear content and design
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## 📂 Key Responsibilities
-- Render SEO-optimized pages (country-wise & course-wise)
-- Handle UI/UX and user interactions
-- Submit enquiry forms to backend API
-- Maintain fast load time and mobile-first design
+## React Compiler
 
-## 🌍 SEO Strategy
-- Separate pages for each country
-- Separate pages for each course
-- Clean, readable URLs
-- Meta tags and structured data support
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## ☁️ Deployment
-- Platform: **Vercel**
-- Build Tool: Vite
-- Environment Variables managed via Vercel dashboard
+## Expanding the ESLint configuration
 
-## ▶️ Run Locally
-```bash
-npm install
-npm run dev
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
