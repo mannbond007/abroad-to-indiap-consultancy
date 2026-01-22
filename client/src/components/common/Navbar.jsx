@@ -1,11 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import {
-  Menu,
-  X,
-  GraduationCap,
-  ArrowRight
-} from "lucide-react";
+import { Menu, X, GraduationCap, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Navbar() {
@@ -17,27 +12,33 @@ export default function Navbar() {
       {/* TOP NAVBAR */}
       <header className="fixed top-4 inset-x-0 z-50">
         <div className="mx-auto max-w-7xl px-4">
-          <div className="flex items-center justify-between rounded-2xl bg-white/70 backdrop-blur-xl border shadow-sm px-6 py-4">
+          <div className="flex items-center justify-between rounded-2xl bg-black/40 backdrop-blur-xl border border-white/15 px-6 py-4 text-white shadow-lg">
 
             {/* LOGO */}
             <Link
               to="/"
-              className="flex items-center gap-2 text-lg font-semibold tracking-tight text-gray-900"
+              className="flex items-center gap-2 text-lg font-semibold tracking-tight"
             >
-              <GraduationCap className="text-blue-600" />
+              <GraduationCap className="text-blue-400" />
               AdmissionConsult
             </Link>
 
             {/* DESKTOP MENU */}
-            <nav className="hidden md:flex items-center gap-10 text-sm font-medium">
+            <nav className="hidden md:flex items-center gap-10 text-sm font-medium text-gray-200">
               <NavItem to="/" active={pathname === "/"}>Home</NavItem>
-              <NavItem to="/study-in-india-for-nepal-students" active={pathname.includes("study-in-india")}>
+              <NavItem
+                to="/study-in-india-for-nepal-students"
+                active={pathname.includes("study-in-india")}
+              >
                 Countries
               </NavItem>
               <NavItem to="/courses" active={pathname.includes("courses")}>
                 Courses
               </NavItem>
-              <NavItem to="/admission-process" active={pathname.includes("admission")}>
+              <NavItem
+                to="/admission-process"
+                active={pathname.includes("admission")}
+              >
                 Process
               </NavItem>
               <NavItem to="/contact-us" active={pathname.includes("contact")}>
@@ -57,7 +58,8 @@ export default function Navbar() {
 
               <button
                 onClick={() => setOpen(true)}
-                className="md:hidden text-gray-900"
+                className="md:hidden text-white"
+                aria-label="Open menu"
               >
                 <Menu size={26} />
               </button>
@@ -73,7 +75,7 @@ export default function Navbar() {
           <>
             {/* OVERLAY */}
             <motion.div
-              className="fixed inset-0 bg-black/50 z-40"
+              className="fixed inset-0 bg-black/70 z-40"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -82,13 +84,13 @@ export default function Navbar() {
 
             {/* DRAWER */}
             <motion.aside
-              className="fixed right-0 top-0 h-full w-full max-w-sm bg-white z-50"
+              className="fixed right-0 top-0 h-full w-full max-w-sm bg-neutral-900 text-white z-50"
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
-              transition={{ duration: 0.4, ease: "easeInOut" }}
+              transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
             >
-              <div className="flex items-center justify-between px-6 py-5 border-b">
+              <div className="flex items-center justify-between px-6 py-5 border-b border-white/10">
                 <span className="text-lg font-semibold">Menu</span>
                 <button onClick={() => setOpen(false)}>
                   <X size={24} />
@@ -107,10 +109,15 @@ export default function Navbar() {
                 className="flex flex-col px-8 py-10 gap-6 text-lg font-medium"
               >
                 <MobileItem to="/" setOpen={setOpen}>Home</MobileItem>
-                <MobileItem to="/study-in-india-for-nepal-students" setOpen={setOpen}>
+                <MobileItem
+                  to="/study-in-india-for-nepal-students"
+                  setOpen={setOpen}
+                >
                   Countries
                 </MobileItem>
-                <MobileItem to="/courses" setOpen={setOpen}>Courses</MobileItem>
+                <MobileItem to="/courses" setOpen={setOpen}>
+                  Courses
+                </MobileItem>
                 <MobileItem to="/admission-process" setOpen={setOpen}>
                   Admission Process
                 </MobileItem>
@@ -121,7 +128,7 @@ export default function Navbar() {
                 <Link
                   to="/contact-us"
                   onClick={() => setOpen(false)}
-                  className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-blue-600 py-4 text-white"
+                  className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-blue-600 py-4 text-white hover:bg-blue-700 transition"
                 >
                   Free Counselling
                   <ArrowRight size={18} />
@@ -139,10 +146,13 @@ export default function Navbar() {
 
 function NavItem({ to, children, active }) {
   return (
-    <Link to={to} className="relative group text-gray-700">
+    <Link
+      to={to}
+      className="relative group text-gray-200 hover:text-white transition"
+    >
       {children}
       <span
-        className={`absolute left-0 -bottom-1 h-[2px] w-full scale-x-0 bg-blue-600 transition-transform group-hover:scale-x-100 ${
+        className={`absolute left-0 -bottom-1 h-[2px] w-full scale-x-0 bg-blue-400 transition-transform group-hover:scale-x-100 ${
           active ? "scale-x-100" : ""
         }`}
       />
@@ -161,7 +171,7 @@ function MobileItem({ to, children, setOpen }) {
       <Link
         to={to}
         onClick={() => setOpen(false)}
-        className="text-gray-900"
+        className="text-gray-100 hover:text-blue-400 transition"
       >
         {children}
       </Link>
