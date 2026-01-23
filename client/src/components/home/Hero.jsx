@@ -1,9 +1,25 @@
-import { ArrowRight, CheckCircle, Globe } from "lucide-react";
+import { ArrowRight, CheckCircle, Globe, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
+
+/* ---------- FLAG-INSPIRED COLOR MAP ---------- */
+const countryColors = {
+  Nepal: "text-red-400",
+  Bangladesh: "text-green-400",
+  "United Arab Emirates": "text-emerald-400",
+  Qatar: "text-purple-400",
+  Oman: "text-rose-400",
+  "Saudi Arabia": "text-green-500",
+  Kuwait: "text-emerald-300",
+  Bahrain: "text-red-500",
+  "South Africa": "text-yellow-400",
+  Nigeria: "text-green-500",
+  Kenya: "text-red-400",
+  Afghanistan: "text-emerald-500",
+};
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+    <section className="relative min-h-[100svh] w-full flex items-center overflow-hidden">
       
       {/* BACKGROUND IMAGE */}
       <div
@@ -14,109 +30,114 @@ export default function Hero() {
         }}
       />
 
-      {/* GRADIENT OVERLAY (for text visibility) */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/70 to-black/90" />
+      {/* OVERLAY */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/65 to-black/90" />
 
       {/* CONTENT */}
-      <div
-        className="relative z-10 max-w-7xl mx-auto px-6 py-24 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center text-white"
-        style={{ textShadow: "0 2px 10px rgba(0,0,0,0.6)" }}
-      >
-        
-        {/* LEFT CONTENT */}
-        <div>
-          {/* Trust Badge */}
-          <div className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur px-4 py-2 text-sm mb-6 border border-white/20">
-            <Globe size={16} />
-            Trusted International Admission Consultancy
-          </div>
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-16 sm:py-20 lg:py-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center text-white">
+          
+          {/* LEFT CONTENT */}
+          <div className="py-10 sm:py-16">
+            {/* Trust Badge */}
+            <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-xs sm:text-sm mb-5 border border-white/20 backdrop-blur">
+              <Globe size={14} />
+              Trusted International Admission Consultancy
+            </div>
 
-          <h1 className="text-4xl md:text-5xl xl:text-6xl font-semibold leading-tight">
-            Study in India with
-            <span className="block text-blue-300">
-              Expert Admission Guidance
-            </span>
-          </h1>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-semibold leading-tight">
+              Study in India with
+              <span className="block text-blue-300">
+                Expert Admission Guidance
+              </span>
+            </h1>
 
-          <p className="mt-6 text-lg text-gray-200 max-w-xl leading-relaxed">
-            We help international students secure admissions in recognized
-            Indian universities through a transparent, ethical, and fully
-            guided process — from counselling to campus arrival.
-          </p>
-
-          {/* CTA */}
-          <div className="mt-10 flex flex-col sm:flex-row gap-4">
-            <Link
-              to="/contact-us"
-              className="inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-7 py-4 font-medium text-white hover:bg-blue-700 transition"
-            >
-              Start Free Counselling
-              <ArrowRight size={18} />
-            </Link>
-
-            <Link
-              to="/admission-process"
-              className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/30 px-7 py-4 font-medium text-white hover:bg-white/10 transition"
-            >
-              View Admission Process
-            </Link>
-          </div>
-
-          {/* TRUST POINTS */}
-          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-6 text-sm text-gray-200">
-            <TrustItem text="UGC & AICTE Approved Universities" />
-            <TrustItem text="Transparent Fees & Ethical Counselling" />
-            <TrustItem text="Dedicated Country-wise Support" />
-            <TrustItem text="Visa & Travel Assistance" />
-          </div>
-        </div>
-
-        {/* RIGHT – COUNTRY PANEL */}
-        <div className="relative">
-          <div className="rounded-3xl bg-white/15 backdrop-blur-xl border border-white/30 shadow-2xl p-10">
-            <h3 className="text-lg font-semibold text-white">
-              Countries We Serve
-            </h3>
-            <p className="mt-1 text-sm text-gray-200">
-              Personalized admission guidance for students from:
+            <p className="mt-5 sm:mt-6 text-base sm:text-lg text-gray-200 max-w-2xl leading-relaxed">
+              We help international students secure admissions in
+              government-recognized Indian universities through a transparent,
+              ethical, and fully guided process — from counselling to campus arrival.
             </p>
 
-            <div className="mt-6 grid grid-cols-2 gap-4">
-              <CountryCard name="Nepal" />
-              <CountryCard name="Bangladesh" />
-              <CountryCard name="UAE" />
-              <CountryCard name="Qatar" />
-              <CountryCard name="Oman" />
-              <CountryCard name="South Africa" />
+            {/* CTA */}
+            <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4">
+              <Link
+                to="/contact-us"
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-6 sm:px-8 py-3.5 sm:py-4 text-sm sm:text-base font-medium text-white hover:bg-blue-700 transition"
+              >
+                Start Free Counselling
+                <ArrowRight size={18} />
+              </Link>
+
+              <Link
+                to="/admission-process"
+                className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/30 px-6 sm:px-8 py-3.5 sm:py-4 text-sm sm:text-base font-medium text-white hover:bg-white/10 transition"
+              >
+                View Admission Process
+              </Link>
+            </div>
+
+            {/* TRUST POINTS */}
+            <div className="mt-10 sm:mt-14 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+              <TrustItem text="UGC, AICTE & NMC Approved Universities" />
+              <TrustItem text="Ministry of Education Recognized Institutions" />
+              <TrustItem text="Transparent Fees & Official Documentation" />
+              <TrustItem text="Dedicated Country-Wise Counsellors" />
+              <TrustItem text="Complete Visa & Travel Assistance" />
+              <TrustItem text="On-Arrival Student Support in India" />
             </div>
           </div>
-        </div>
 
+          {/* RIGHT – COUNTRY SECTION */}
+          <div className="relative mt-6 lg:mt-0">
+            
+            {/* DARK GLOW (DESKTOP ONLY) */}
+            <div className="hidden sm:block absolute -inset-8 rounded-3xl bg-gradient-to-br from-black/60 via-indigo-900/40 to-purple-900/40 blur-3xl" />
+            <div className="hidden sm:block absolute -inset-3 rounded-3xl ring-1 ring-white/10" />
+
+            <div className="relative rounded-2xl sm:rounded-3xl bg-white/10 backdrop-blur-xl border border-white/30 p-6 sm:p-8 lg:p-10 shadow-2xl">
+              <h3 className="text-base sm:text-lg font-semibold text-white">
+                Countries We Serve
+              </h3>
+              <p className="mt-1 text-xs sm:text-sm text-gray-200">
+                Dedicated admission support for students from:
+              </p>
+
+              <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
+                {Object.keys(countryColors).map((country) => (
+                  <CountryCard key={country} name={country} />
+                ))}
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
     </section>
   );
 }
 
-/* ---------------- SUB COMPONENTS ---------------- */
+/* ---------- SUB COMPONENTS ---------- */
 
 function TrustItem({ text }) {
   return (
-    <div className="flex items-start gap-3">
-      <CheckCircle size={18} className="text-green-400 mt-0.5" />
-      <span>{text}</span>
+    <div className="flex items-start gap-3 rounded-xl bg-white/5 border border-white/20 px-3 sm:px-4 py-3">
+      <span className="flex h-8 w-8 items-center justify-center rounded-full bg-green-400/20 shrink-0">
+        <CheckCircle size={16} className="text-green-400" />
+      </span>
+      <span className="text-xs sm:text-sm text-gray-200 leading-snug">
+        {text}
+      </span>
     </div>
   );
 }
 
 function CountryCard({ name }) {
+  const color = countryColors[name] || "text-gray-300";
+
   return (
-    <div className="group rounded-xl border border-white/30 bg-white/10 px-5 py-4 text-sm font-medium text-white shadow-md hover:shadow-xl hover:bg-white/20 transition-all duration-300 cursor-pointer">
-      <div className="flex items-center justify-between">
-        <span>{name}</span>
-        <span className="opacity-0 translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition text-xs">
-          →
-        </span>
-      </div>
+    <div className="flex items-center gap-3 rounded-xl border border-white/30 bg-white/10 px-3 sm:px-4 py-2.5 sm:py-3 text-xs sm:text-sm font-medium text-white">
+      <MapPin size={14} className={color} />
+      <span>{name}</span>
     </div>
   );
 }
