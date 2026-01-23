@@ -19,7 +19,7 @@ const reasons = [
     icon: GraduationCap,
     title: "Government-Recognized Universities Only",
     description:
-      "We work exclusively with UGC, AICTE, NMC, and other officially approved Indian universities and institutions.",
+      "We work exclusively with UGC, AICTE, and other officially approved Indian universities and institutions.",
   },
   {
     icon: Users,

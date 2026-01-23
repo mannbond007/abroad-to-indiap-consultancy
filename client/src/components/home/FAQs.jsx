@@ -31,7 +31,7 @@ const faqs = [
   {
     question: "How long does the admission process usually take?",
     answer:
-      "The admission process typically takes between 2 and 6 weeks, depending on document readiness and university response time.",
+      "The admission process typically takes between 2-10 weeks, depending on document readiness and university response time.",
   },
   {
     question: "Who makes the final decision on Indian student visas?",
