@@ -9,7 +9,6 @@ import {
   Home,
   CheckCircle,
   ShieldCheck,
-  LineChart,
 } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -124,18 +123,6 @@ const processData = [
     ],
     color: "emerald",
   },
-//   {
-//     icon: LineChart,
-//     title: "Academic Progress Monitoring",
-//     points: [
-//       "Orientation on academic expectations in Indian universities",
-//       "Guidance on exams, grading, and evaluations",
-//       "Support in case of academic difficulties",
-//       "Coordination with university support systems",
-//       "Encouragement for smooth academic progression",
-//     ],
-//     color: "blue",
-//   },
 ];
 
 /* ---------------- STYLES ---------------- */
@@ -174,28 +161,27 @@ const cardVariants = {
 export default function ProcessToStudyInIndia() {
   return (
     <div className="min-h-screen w-full bg-white relative overflow-hidden">
-      {/* GRID PATTERN BACKGROUND */}
+      {/* RESPONSIVE GRID + GLOW BACKGROUND */}
       <div
-  className="absolute inset-0 z-0 pointer-events-none"
-  style={{
-    backgroundImage: `
-      linear-gradient(to right, rgba(16,185,129,0.18) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(16,185,129,0.18) 1px, transparent 1px),
-      radial-gradient(circle at center, rgba(16,185,129,0.4), transparent 55%)
-    `,
-    backgroundSize: "32px 32px, 32px 32px, 100% 100%",
-  }}
-/>
+        className="absolute inset-0 z-0 pointer-events-none"
+        style={{
+          backgroundImage: `
+            linear-gradient(to right, rgba(16,185,129,0.12) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(16,185,129,0.12) 1px, transparent 1px),
+            radial-gradient(circle at center, rgba(16,185,129,0.32), transparent 60%)
+          `,
+          backgroundSize: "48px 48px, 48px 48px, 100% 100%",
+        }}
+      />
 
-
-      <section className="relative z-10 py-20">
+      <section className="relative z-10 py-16 sm:py-20">
         {/* HEADER */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-14 sm:mb-16"
         >
           <div className="flex justify-center mb-4">
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-400/50 text-emerald-800 text-sm font-bold uppercase">
@@ -212,7 +198,7 @@ export default function ProcessToStudyInIndia() {
             <span className="h-[3px] w-32 rounded-full bg-gradient-to-r from-emerald-400 to-cyan-400" />
           </div>
 
-          <p className="mt-5 max-w-2xl mx-auto text-slate-800 text-[15px] leading-relaxed">
+          <p className="mt-5 max-w-2xl mx-auto text-slate-800 text-sm sm:text-[15px] leading-relaxed px-4">
             A structured, transparent, and student-focused admission journey
             covering eligibility, admission, visa, compliance, and academic
             continuity for international students in India.
@@ -225,7 +211,7 @@ export default function ProcessToStudyInIndia() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-6 max-w-7xl mx-auto"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 px-4 sm:px-6 max-w-7xl mx-auto"
         >
           {processData.map((step) => {
             const Icon = step.icon;
@@ -233,7 +219,7 @@ export default function ProcessToStudyInIndia() {
               <motion.div
                 key={step.title}
                 variants={cardVariants}
-                className={`rounded-2xl border-2 bg-white p-7 shadow-lg hover:-translate-y-2 hover:shadow-xl transition ${colorStyles[step.color]}`}
+                className={`rounded-2xl border-2 bg-white p-5 sm:p-7 shadow-lg hover:-translate-y-2 hover:shadow-xl transition ${colorStyles[step.color]}`}
               >
                 <div
                   className={`flex h-12 w-12 items-center justify-center rounded-xl border mb-5 ${colorStyles[step.color]}`}
@@ -248,8 +234,11 @@ export default function ProcessToStudyInIndia() {
                 <ul className="space-y-3">
                   {step.points.map((point, i) => (
                     <li key={i} className="flex gap-3">
-                      <CheckCircle size={16} className="text-emerald-600 mt-1" />
-                      <span className="text-[15px] text-slate-800 leading-relaxed">
+                      <CheckCircle
+                        size={16}
+                        className="text-emerald-600 mt-1 shrink-0"
+                      />
+                      <span className="text-sm sm:text-[15px] text-slate-800 leading-relaxed">
                         {point}
                       </span>
                     </li>
