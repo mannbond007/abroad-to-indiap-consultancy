@@ -12,20 +12,44 @@ export default function Navbar() {
       {/* TOP NAVBAR */}
       <header className="fixed top-4 inset-x-0 z-50">
         <div className="mx-auto max-w-7xl px-4">
-          <div className="flex items-center justify-between rounded-2xl bg-black/40 backdrop-blur-xl border border-white/15 px-6 py-4 text-white shadow-lg">
-
+          <div
+            className="
+              flex items-center justify-between min-h-[64px]
+              rounded-full
+              bg-slate-900/70 backdrop-blur-xl
+              border border-white/10
+              px-6
+              text-white
+              shadow-[0_10px_40px_rgba(0,0,0,0.35)]
+            "
+          >
             {/* LOGO */}
             <Link
               to="/"
-              className="flex items-center gap-2 text-lg font-semibold tracking-tight"
+              className="flex items-center gap-3 text-lg font-semibold tracking-tight"
             >
-              <GraduationCap className="text-blue-400" />
-              AdmissionConsult
+              <div
+                className="
+                  flex items-center justify-center h-10 w-10 rounded-full
+                 bg-gradient-to-r from-blue-800 to-indigo-900
+                  shadow-lg shadow-blue-600/30
+                "
+              >
+                <GraduationCap size={28} className="text-white" />
+              </div>
+
+              <span className="leading-tight">
+                Study
+                <span className="mx-0.5 text-slate-400 font-medium">In</span>
+                <span className="text-blue-400">India</span>
+              </span>
             </Link>
 
             {/* DESKTOP MENU */}
-            <nav className="hidden md:flex items-center gap-10 text-sm font-medium text-gray-200">
-              <NavItem to="/" active={pathname === "/"}>Home</NavItem>
+            <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
+              <NavItem to="/" active={pathname === "/"}>
+                Home
+              </NavItem>
               <NavItem
                 to="/study-in-india-for-nepal-students"
                 active={pathname.includes("study-in-india")}
@@ -47,10 +71,19 @@ export default function Navbar() {
             </nav>
 
             {/* CTA + MOBILE */}
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-3">
               <Link
                 to="/contact-us"
-                className="hidden md:inline-flex items-center gap-2 rounded-full bg-blue-600 px-6 py-2.5 text-sm font-medium text-white hover:bg-blue-700 transition"
+                className="
+                  hidden md:inline-flex items-center gap-2
+                  rounded-xl
+                  bg-blue-600/90
+                  px-5 py-2.5
+                  text-sm font-medium
+                  text-white
+                  hover:bg-blue-600
+                  transition
+                "
               >
                 Free Counselling
                 <ArrowRight size={16} />
@@ -58,13 +91,12 @@ export default function Navbar() {
 
               <button
                 onClick={() => setOpen(true)}
-                className="md:hidden text-white"
+                className="md:hidden text-white/90 hover:text-white transition"
                 aria-label="Open menu"
               >
-                <Menu size={26} />
+                <Menu size={24} />
               </button>
             </div>
-
           </div>
         </div>
       </header>
@@ -93,7 +125,7 @@ export default function Navbar() {
               <div className="flex items-center justify-between px-6 py-5 border-b border-white/10">
                 <span className="text-lg font-semibold">Menu</span>
                 <button onClick={() => setOpen(false)}>
-                  <X size={24} />
+                  <X size={22} />
                 </button>
               </div>
 
@@ -102,13 +134,13 @@ export default function Navbar() {
                 animate="show"
                 variants={{
                   hidden: {},
-                  show: {
-                    transition: { staggerChildren: 0.08 }
-                  }
+                  show: { transition: { staggerChildren: 0.08 } },
                 }}
                 className="flex flex-col px-8 py-10 gap-6 text-lg font-medium"
               >
-                <MobileItem to="/" setOpen={setOpen}>Home</MobileItem>
+                <MobileItem to="/" setOpen={setOpen}>
+                  Home
+                </MobileItem>
                 <MobileItem
                   to="/study-in-india-for-nepal-students"
                   setOpen={setOpen}
@@ -128,7 +160,11 @@ export default function Navbar() {
                 <Link
                   to="/contact-us"
                   onClick={() => setOpen(false)}
-                  className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-blue-600 py-4 text-white hover:bg-blue-700 transition"
+                  className="
+                    mt-8 inline-flex items-center justify-center gap-2
+                    rounded-xl bg-blue-600 py-4
+                    text-white hover:bg-blue-700 transition
+                  "
                 >
                   Free Counselling
                   <ArrowRight size={18} />
@@ -148,12 +184,12 @@ function NavItem({ to, children, active }) {
   return (
     <Link
       to={to}
-      className="relative group text-gray-200 hover:text-white transition"
+      className="relative text-gray-300 hover:text-white transition"
     >
       {children}
       <span
-        className={`absolute left-0 -bottom-1 h-[2px] w-full scale-x-0 bg-blue-400 transition-transform group-hover:scale-x-100 ${
-          active ? "scale-x-100" : ""
+        className={`absolute left-0 -bottom-1 h-[2px] w-full bg-blue-400 transition-transform origin-left ${
+          active ? "scale-x-100" : "scale-x-0"
         }`}
       />
     </Link>
@@ -165,13 +201,13 @@ function MobileItem({ to, children, setOpen }) {
     <motion.div
       variants={{
         hidden: { opacity: 0, x: 20 },
-        show: { opacity: 1, x: 0 }
+        show: { opacity: 1, x: 0 },
       }}
     >
       <Link
         to={to}
         onClick={() => setOpen(false)}
-        className="text-gray-100 hover:text-blue-400 transition"
+        className="text-gray-200 hover:text-blue-400 transition"
       >
         {children}
       </Link>

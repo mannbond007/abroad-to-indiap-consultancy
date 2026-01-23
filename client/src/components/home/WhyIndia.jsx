@@ -1,106 +1,225 @@
 import {
   GraduationCap,
   Wallet,
+  BookOpen,
   Languages,
-  Globe,
+  ShieldCheck,
   Briefcase,
+  FileCheck,
+  Users,
+  Globe,
 } from "lucide-react";
+import { motion } from "framer-motion";
 
 const WhyIndia = () => {
+  const featuresData = [
+    {
+      icon: <GraduationCap size={22} />,
+      title: "Globally Recognized Education",
+      description:
+        "Indian universities are approved by UGC, AICTE, NMC, PCI and other statutory bodies. Degrees are accepted across the Middle East, Europe, Africa and other regions.",
+      color: "emerald",
+    },
+    {
+      icon: <Wallet size={22} />,
+      title: "Affordable Education",
+      description:
+        "India offers high-quality education with significantly lower tuition fees and living costs compared to many Western countries.",
+      color: "blue",
+    },
+    {
+      icon: <BookOpen size={22} />,
+      title: "Wide Range of Courses",
+      description:
+        "Students can choose from MBBS, Engineering, Computer Science, Business Management, Pharmacy, Nursing, Data Science, Artificial Intelligence and more.",
+      color: "indigo",
+    },
+    {
+      icon: <Languages size={22} />,
+      title: "English-Medium Instruction",
+      description:
+        "Most universities in India offer programs entirely in English, ensuring international students face no language barriers.",
+      color: "violet",
+    },
+    {
+      icon: <ShieldCheck size={22} />,
+      title: "Safe & Welcoming Environment",
+      description:
+        "India hosts students from over 100 countries and provides secure campuses, international student support offices and a multicultural environment.",
+      color: "teal",
+    },
+    {
+      icon: <Briefcase size={22} />,
+      title: "Career & Internship Opportunities",
+      description:
+        "Universities emphasize practical learning, internships and industry exposure through collaborations with leading organizations.",
+      color: "cyan",
+    },
+    {
+      icon: <FileCheck size={22} />,
+      title: "Simple Admission & Visa Process",
+      description:
+        "The admission and visa process is transparent and straightforward with clear guidance on eligibility and documentation.",
+      color: "amber",
+    },
+    {
+      icon: <Users size={22} />,
+      title: "Why Choose Our Company",
+      description:
+        "Authorized representatives of reputed universities, personalized counselling, transparent process with no hidden charges, and complete pre-departure & post-arrival support.",
+      color: "rose",
+    },
+    {
+      icon: <Globe size={22} />,
+      title: "Global Student Network",
+      description:
+        "Build lifelong connections with international students, alumni networks, and academic collaborations across the globe.",
+      color: "sky",
+    },
+  ];
+
+  const colorStyles = {
+    emerald: {
+      border: "border-emerald-200 border-2 hover:border-emerald-300",
+      glow: "shadow-emerald-200/40 hover:shadow-emerald-300/60",
+      icon: "text-emerald-600 bg-emerald-50",
+    },
+    blue: {
+      border: "border-blue-200 border-2 hover:border-blue-300",
+      glow: "shadow-blue-200/40 hover:shadow-blue-300/60",
+      icon: "text-blue-600 bg-blue-50",
+    },
+    indigo: {
+      border: "border-indigo-200 border-2 hover:border-indigo-300",
+      glow: "shadow-indigo-200/40 hover:shadow-indigo-300/60",
+      icon: "text-indigo-600 bg-indigo-50",
+    },
+    violet: {
+      border: "border-violet-200 border-2 hover:border-violet-300",
+      glow: "shadow-violet-200/40 hover:shadow-violet-300/60",
+      icon: "text-violet-600 bg-violet-50",
+    },
+    teal: {
+      border: "border-teal-200 border-2 hover:border-teal-300",
+      glow: "shadow-teal-200/40 hover:shadow-teal-300/60",
+      icon: "text-teal-600 bg-teal-50",
+    },
+    cyan: {
+      border: "border-cyan-200 border-2 hover:border-cyan-300",
+      glow: "shadow-cyan-200/40 hover:shadow-cyan-300/60",
+      icon: "text-cyan-600 bg-cyan-50",
+    },
+    amber: {
+      border: "border-amber-200 border-2 hover:border-amber-300",
+      glow: "shadow-amber-200/40 hover:shadow-amber-300/60",
+      icon: "text-amber-600 bg-amber-50",
+    },
+    rose: {
+      border: "border-rose-200 border-2 hover:border-rose-300",
+      glow: "shadow-rose-200/40 hover:shadow-rose-300/60",
+      icon: "text-rose-600 bg-rose-50",
+    },
+    sky: {
+      border: "border-sky-200 border-2 hover:border-sky-300",
+      glow: "shadow-sky-200/40 hover:shadow-sky-300/60",
+      icon: "text-sky-600 bg-sky-50",
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: (index) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: index * 0.08,
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    }),
+  };
+
   return (
-    <section className="relative min-h-screen w-full overflow-hidden bg-white">
-      
-      {/* BLENDED BACKGROUND (MINT + SOFT GREEN GLOW) */}
+    <div className="min-h-screen w-full bg-white relative overflow-hidden">
+      {/* 🔥 STRONGER BACKGROUND GLOW */}
       <div
-        className="absolute inset-0 z-0"
+        className="absolute inset-0 z-0 pointer-events-none"
         style={{
           backgroundImage: `
-            linear-gradient(45deg, 
-              rgba(240,253,250,1) 0%, 
-              rgba(204,251,241,0.7) 30%, 
-              rgba(153,246,228,0.5) 60%, 
-              rgba(94,234,212,0.4) 100%
-            ),
-            radial-gradient(circle at center, rgba(143,255,176,0.35), transparent 65%),
-            radial-gradient(circle at 40% 30%, rgba(255,255,255,0.8) 0%, transparent 40%),
-            radial-gradient(circle at 80% 70%, rgba(167,243,208,0.5) 0%, transparent 50%),
-            radial-gradient(circle at 20% 80%, rgba(209,250,229,0.6) 0%, transparent 45%)
+            radial-gradient(circle at center, rgba(16,185,129,0.35), transparent 55%),
+            radial-gradient(circle at top left, rgba(16,185,129,0.25), transparent 50%),
+            radial-gradient(circle at bottom right, rgba(6,182,212,0.22), transparent 55%)
           `,
         }}
       />
 
-      {/* CONTENT */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-28 text-slate-900">
+      <section className="relative z-10 py-20">
+        {/* HEADER */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="text-center mb-14"
+        >
+          <div className="flex justify-center mb-4">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-400/50 text-emerald-800 text-sm font-bold tracking-wide uppercase">
+              <span className="h-2.5 w-2.5 rounded-full bg-emerald-500" />
+              Why Study in India
+            </span>
+          </div>
 
-        {/* SECTION HEADER */}
-        <div className="max-w-3xl mb-20">
-          <h2 className="text-3xl md:text-4xl font-semibold leading-tight">
-            Why Study in India?
+          <h2 className="text-3xl md:text-4xl font-semibold text-slate-900">
+            A Trusted Destination for International Students
           </h2>
-          <p className="mt-4 text-lg text-slate-700 leading-relaxed">
-            India offers globally recognized education, affordable tuition,
-            and a culturally inclusive environment for international students.
+
+          <div className="flex justify-center mt-3">
+            <span className="h-[3px] w-32 rounded-full bg-gradient-to-r from-emerald-400 to-cyan-400" />
+          </div>
+
+          <p className="mt-5 text-slate-700 max-w-xl mx-auto leading-relaxed">
+            Globally recognized education, affordability and complete student
+            support — all backed by transparent processes.
           </p>
+        </motion.div>
+
+        {/* CARDS */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-16 px-6 max-w-7xl mx-auto">
+          {featuresData.map((feature, index) => (
+            <motion.div
+              key={feature.title}
+              custom={index}
+              variants={cardVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              className={`
+                group p-6 rounded-2xl border bg-white/95 backdrop-blur-sm
+                transition-all duration-300 ease-out
+                shadow-lg ${colorStyles[feature.color].glow}
+                hover:-translate-y-2 hover:scale-[1.02]
+                ${colorStyles[feature.color].border}
+              `}
+            >
+              <div
+                className={`flex items-center justify-center h-12 w-12 rounded-xl border mb-5 transition-transform duration-300 group-hover:scale-110 ${colorStyles[feature.color].icon}`}
+              >
+                {feature.icon}
+              </div>
+
+              <h3 className="text-lg font-semibold text-slate-900">
+                {feature.title}
+              </h3>
+
+              <p className="mt-3 text-slate-700 text-sm leading-relaxed">
+                {feature.description}
+              </p>
+            </motion.div>
+          ))}
         </div>
-
-        {/* REASONS GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-
-          <Reason
-            icon={<GraduationCap size={26} />}
-            title="Globally Recognized Degrees"
-            description="Indian universities are approved by UGC, AICTE, MCI, and other regulatory bodies, ensuring worldwide academic recognition."
-          />
-
-          <Reason
-            icon={<Wallet size={26} />}
-            title="Affordable Education"
-            description="High-quality education and living costs that are significantly lower compared to other popular study destinations."
-          />
-
-          <Reason
-            icon={<Languages size={26} />}
-            title="English-Medium Instruction"
-            description="Most academic programs are taught in English, enabling international students to adapt smoothly."
-          />
-
-          <Reason
-            icon={<Globe size={26} />}
-            title="Culturally Diverse & Safe"
-            description="India is known for its diversity, hospitality, and student-friendly cities with strong international communities."
-          />
-
-          <Reason
-            icon={<Briefcase size={26} />}
-            title="Strong Career Outcomes"
-            description="Graduates gain access to global career opportunities through industry-aligned programs and international exposure."
-          />
-
-        </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 };
 
 export default WhyIndia;
-
-/* ---------- CARD (CLEAN, NO GRADIENT) ---------- */
-
-const Reason = ({ icon, title, description }) => {
-  return (
-    <div className="rounded-2xl bg-white border border-slate-200 p-8 shadow-sm hover:shadow-xl transition-shadow duration-300">
-      <div className="flex items-center gap-4 mb-4">
-        <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-teal-100 text-teal-700">
-          {icon}
-        </div>
-        <h3 className="text-lg font-semibold text-slate-900">
-          {title}
-        </h3>
-      </div>
-
-      <p className="text-sm leading-relaxed text-slate-700">
-        {description}
-      </p>
-    </div>
-  );
-};
