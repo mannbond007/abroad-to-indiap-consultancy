@@ -168,7 +168,7 @@ export default function WhyYouChooseUs() {
               variants={fadeUp}
               className="flex items-start sm:items-center gap-3 mt-6 sm:mt-8 rounded-xl bg-emerald-50 border border-emerald-500/50 p-4"
             >
-              <CheckCircle className="text-emerald-600 mt-0.5 sm:mt-0" size={24} />
+              <CheckCircle className="text-emerald-600 mt-0.5 sm:mt-0" size={22} />
               <p className="text-sm font-semibold text-emerald-800">
                 We prioritize student safety, legal compliance, and long-term
                 academic success above everything else.
