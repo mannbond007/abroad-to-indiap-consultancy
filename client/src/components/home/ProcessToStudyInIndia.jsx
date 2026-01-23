@@ -176,16 +176,17 @@ export default function ProcessToStudyInIndia() {
     <div className="min-h-screen w-full bg-white relative overflow-hidden">
       {/* GRID PATTERN BACKGROUND */}
       <div
-        className="absolute inset-0 z-0 pointer-events-none"
-        style={{
-          backgroundImage: `
-            linear-gradient(to right, rgba(16,185,129,0.06) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(16,185,129,0.06) 1px, transparent 1px),
-            radial-gradient(circle at center, rgba(16,185,129,0.35), transparent 55%)
-          `,
-          backgroundSize: "40px 40px, 40px 40px, 100% 100%",
-        }}
-      />
+  className="absolute inset-0 z-0 pointer-events-none"
+  style={{
+    backgroundImage: `
+      linear-gradient(to right, rgba(16,185,129,0.18) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(16,185,129,0.18) 1px, transparent 1px),
+      radial-gradient(circle at center, rgba(16,185,129,0.4), transparent 55%)
+    `,
+    backgroundSize: "32px 32px, 32px 32px, 100% 100%",
+  }}
+/>
+
 
       <section className="relative z-10 py-20">
         {/* HEADER */}
