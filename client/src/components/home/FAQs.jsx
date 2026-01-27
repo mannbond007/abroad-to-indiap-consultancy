@@ -72,9 +72,11 @@ export default function FAQs() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full 
-                           bg-emerald-500/15 border border-emerald-400/60
-                           text-emerald-900 text-sm font-bold uppercase">
+          <span
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full 
+                       bg-emerald-500/15 border border-emerald-400/60
+                       text-emerald-900 text-sm font-bold uppercase"
+          >
             <span className="h-2.5 w-2.5 rounded-full bg-emerald-500" />
             FAQs
           </span>
@@ -103,7 +105,6 @@ export default function FAQs() {
                 key={index}
                 className="
                   rounded-lg
-                  
                   border border-emerald-300/50
                   bg-zinc-50/10 backdrop-blur-xl
                   shadow-[0_12px_32px_rgba(0,0,0,0.08)]
