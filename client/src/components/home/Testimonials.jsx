@@ -78,7 +78,7 @@ export default function Testimonials() {
             bg-emerald-500/15 border border-emerald-400/60
             text-emerald-900 text-sm font-semibold uppercase"
           >
-            <span className="h-2.5 w-2.5 rounded-full bg-emerald-500" />
+            <span className="h-2.5 w-2.5 font-extrabold rounded-full bg-emerald-500" />
             Testimonials
           </span>
 
