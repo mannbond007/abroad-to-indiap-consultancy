@@ -51,8 +51,7 @@ export default function Hero() {
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage:
-            "url(https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1920&q=80)",
+          backgroundImage: "url('/hero.png')",
         }}
       />
 
@@ -68,12 +67,13 @@ export default function Hero() {
         variants={staggerContainer}
       >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center text-white">
-          
           {/* LEFT CONTENT */}
           <motion.div variants={fadeUp} className="py-10 sm:py-16">
             {/* Trust Badge */}
-            <div className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs sm:text-sm mb-5
-                            bg-green-500/10 border border-green-500/20 backdrop-blur">
+            <div
+              className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs sm:text-sm mb-5
+                            bg-green-500/10 border border-green-500/20 backdrop-blur"
+            >
               <Globe className="text-green-500" size={20} />
               Trusted International Admission Consultancy
             </div>
@@ -88,7 +88,8 @@ export default function Hero() {
             <p className="mt-5 sm:mt-6 text-base sm:text-lg text-gray-200 max-w-2xl leading-relaxed">
               We help international students secure admissions in
               government-recognized Indian universities through a transparent,
-              ethical, and fully guided process — from counselling to campus arrival.
+              ethical, and fully guided process — from counselling to campus
+              arrival.
             </p>
 
             {/* CTA */}
@@ -133,15 +134,18 @@ export default function Hero() {
           {/* RIGHT – COUNTRY SECTION */}
           <motion.div variants={fadeUp} className="relative mt-6 lg:mt-0">
             {/* GLOW */}
-            <div className="hidden sm:block absolute -inset-8 rounded-3xl
+            <div
+              className="hidden sm:block absolute -inset-8 rounded-3xl
                             bg-gradient-to-br from-black/60 via-indigo-900/40 to-purple-900/40
-                            blur-3xl" />
+                            blur-3xl"
+            />
             <div className="hidden sm:block absolute -inset-3 rounded-3xl ring-1 ring-white/10" />
 
-            <div className="relative rounded-2xl sm:rounded-3xl
+            <div
+              className="relative rounded-2xl sm:rounded-3xl
                             bg-white/10 backdrop-blur-xl border border-white/30
-                            p-6 sm:p-8 lg:p-10 shadow-2xl">
-
+                            p-6 sm:p-8 lg:p-10 shadow-2xl"
+            >
               {/* HEADING */}
               <div className="flex flex-col items-center gap-2">
                 <span
@@ -190,8 +194,10 @@ function TrustItem({ text }) {
                  bg-white/5 border border-white/20
                  px-3 sm:px-4 py-3"
     >
-      <span className="flex h-8 w-8 items-center justify-center rounded-full
-                       bg-green-400/20 shrink-0">
+      <span
+        className="flex h-8 w-8 items-center justify-center rounded-full
+                       bg-green-400/20 shrink-0"
+      >
         <CheckCircle size={16} className="text-green-400" />
       </span>
       <span className="text-xs sm:text-sm text-gray-200 leading-snug">
