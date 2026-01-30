@@ -7,6 +7,10 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const { pathname } = useLocation();
 
+  const isCountriesActive =
+    pathname === "/countries" ||
+    pathname.startsWith("/study-in-india-for-");
+
   return (
     <>
       {/* NAVBAR */}
@@ -44,23 +48,29 @@ export default function Navbar() {
 
             {/* DESKTOP NAV */}
             <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
-              <NavItem to="/" active={pathname === "/"}>Home</NavItem>
-              <NavItem
-                to="/study-in-india-for-nepal-students"
-                active={pathname.includes("study-in-india")}
-              >
+              <NavItem to="/" active={pathname === "/"}>
+                Home
+              </NavItem>
+
+              <NavItem to="/countries" active={isCountriesActive}>
                 Countries
               </NavItem>
-              <NavItem to="/courses" active={pathname.includes("courses")}>
+
+              <NavItem to="/courses" active={pathname.startsWith("/courses")}>
                 Courses
               </NavItem>
+
               <NavItem
                 to="/admission-process"
-                active={pathname.includes("admission")}
+                active={pathname.startsWith("/admission")}
               >
                 Process
               </NavItem>
-              <NavItem to="/contact-us" active={pathname.includes("contact")}>
+
+              <NavItem
+                to="/contact-us"
+                active={pathname.startsWith("/contact")}
+              >
                 Contact
               </NavItem>
             </nav>
@@ -132,14 +142,22 @@ export default function Navbar() {
                 }}
                 className="flex flex-col px-8 py-10 gap-6 text-lg font-medium"
               >
-                <MobileItem to="/" setOpen={setOpen}>Home</MobileItem>
-                <MobileItem to="/study-in-india-for-nepal-students" setOpen={setOpen}>
+                <MobileItem to="/" setOpen={setOpen}>
+                  Home
+                </MobileItem>
+
+                <MobileItem to="/countries" setOpen={setOpen}>
                   Countries
                 </MobileItem>
-                <MobileItem to="/courses" setOpen={setOpen}>Courses</MobileItem>
+
+                <MobileItem to="/courses" setOpen={setOpen}>
+                  Courses
+                </MobileItem>
+
                 <MobileItem to="/admission-process" setOpen={setOpen}>
                   Admission Process
                 </MobileItem>
+
                 <MobileItem to="/contact-us" setOpen={setOpen}>
                   Contact
                 </MobileItem>

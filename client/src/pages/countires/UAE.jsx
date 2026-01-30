@@ -2,7 +2,7 @@ import React from 'react'
 
 const UAE = () => {
   return (
-    <div>UAE</div>
+    <div>This is teh duumy page for UAE</div>
   )
 }
 
